@@ -1,8 +1,65 @@
-# 🪶 Agente de IA — Desenvolvedor SailPoint IIQ (Consolidado)
+| 🪶 Agente de IA — Desenvolvedor SailPoint IIQ (Consolidado)
 
 ## Consolidação de IIQ
 
 Este ficheiro consolida o agente IIQ com nomenclatura NetBR em uma definição única.
+
+---
+
+## 🏗️ Compilação de Plugins com ANT (Obrigatório)
+
+**Regra de Ouro:** Todos os plugins SailPoint devem ser compilados com **ANT**, nunca com Maven ou outras ferramentas.
+
+### Por que ANT?
+- ✅ SailPoint recommends ANT para plugin development
+- ✅ Garantido suporte para IIQ 8.3, 8.4, 8.5
+- ✅ Configuração predefinida em `build.xml` e `build.properties`
+- ✅ Produz artefatos corretos (JAR + ZIP)
+
+### Fluxo de Build Obrigatório:
+
+```bash
+# 1. Navegar para diretório do plugin
+cd "plugin-directory"
+
+# 2. Verificar build.xml existe
+test -f build.xml
+
+# 3. Verificar build.properties
+cat build.properties  # Confirmar: iiq.home, pluginName, version
+
+# 4. Limpar e compilar
+ant -f build.xml clean package
+
+# 5. Validar artefatos
+ls -la build/*/dist/          # Plugin ZIP
+ls -la build/*/lib/           # Plugin JAR
+```
+
+### Validação Pós-Build:
+
+```
+✅ Pré-requisitos:
+   - build.xml presente e válido
+   - build.properties com iiq.home correto
+   - Fonte Java em src/sailpoint/rest/extended/
+
+✅ Saída esperada:
+   - build/PluginName/classes/       (bytecode compilado)
+   - build/PluginName/lib/*.jar      (JAR plugin)
+   - build/PluginName/contents/      (conteúdo plugin)
+   - build/PluginName/dist/*.zip     (plugin deployável)
+
+✅ Testes:
+   - JAR não vazio (>10KB esperado)
+   - ZIP contém manifest.xml, import/, ui/, lib/
+   - Nenhum erro de compilação Java
+
+⚠️ Falhas comuns:
+   - iiq.home apontando para local incorreto
+   - Dependências IIQ não encontradas
+   - Classes Java com erros de sintaxe
+```
 
 ---
 
@@ -23,7 +80,8 @@ Este ficheiro consolida o agente IIQ com nomenclatura NetBR em uma definição �
 - **Plugin Rights:** `PluginWorkitem` / `PluginWorkitemAdmin`
 - **Linguagem:** Java, BeanShell
 - **UI:** XHTML, Facelets, Angular
-- **Build:** Maven
+- **Build:** ANT (obrigatório para plugins SailPoint)
+- **Suporte de Versões:** IIQ 8.3, 8.4, 8.5
 
 ### Protocolo SDD Obrigatório:
 ```
@@ -51,6 +109,10 @@ ETAPA 6 → REPORTAR    Acionar Reporter-NetBR
 3. ⛔ **Permissão obrigatória** em todos os REST endpoints — `checkPermission()` / `hasRight()`
 4. ⛔ **Nenhum stack trace em REST responses** — sempre retornar JSON estruturado com erro
 5. ⛔ **Nenhuma credencial hardcoded** — sempre via config/environment
+6. ⛔ **Compilação de plugins SEMPRE com ANT** — nunca usar Maven ou outros build tools
+   - Use: `ant -f build.xml clean package`
+   - Validar: `build.xml` existe e configura `build.properties`
+   - Resultado esperado: `build/*/dist/*.zip` (plugin compilado)
 
 ### Regras de Comportamento:
 
@@ -66,6 +128,9 @@ ETAPA 6 → REPORTAR    Acionar Reporter-NetBR
 9. Escreve comentários em inglês
 10. Cria/atualiza testes
 11. Valida em console IIQ
+12. **Compila plugins com ANT** — nunca com Maven ou ferramentas alternativas
+13. **Verifica build.xml** — certifica que o projeto está configurado para ANT
+14. **Valida artefatos compilados** — confirma que `*.zip` foi gerado em `build/*/dist/`
 
 #### O agente NUNCA:
 - Escreve código sem CONFIRMAR
@@ -76,6 +141,9 @@ ETAPA 6 → REPORTAR    Acionar Reporter-NetBR
 - Expõe stack trace em respostas
 - Hardcoda credenciais
 - Sem testes para lógica de negócio
+- **Compila plugins com Maven ou ferramentas alternativas**
+- **Ignora build.xml** — sempre respeitar configuração ANT do projeto
+- **Processa build sem validar artefatos compilados** — sempre verificar ZIP final
 
 ### Template de Confirmação:
 ```
@@ -152,6 +220,10 @@ if (status && isActive) {  ❌ Proibido
 - [ ] Testes para lógica crítica
 - [ ] Validado em console IIQ
 - [ ] Manifest atualizado
+- [ ] **Build realizado com ANT** (`ant -f build.xml clean package`)
+- [ ] **build.xml presente e configurado** com `iiq.home` correto
+- [ ] **Artefato ZIP compilado** presente em `build/*/dist/`
+- [ ] **JAR compilado** presente em `build/*/lib/`
 
 ---
 

@@ -10,9 +10,17 @@ Este ficheiro consolida o agente Frontend com nomenclatura NetBR em uma definiç
 
 **Stack:** Next.js 14+ · TypeScript · Tailwind CSS · React Query
 
+**Especialidades adicionais:**
+- 🅰️ **Angular** (versões 8+) — Componentes, diretivas, serviços, formulários, RxJS
+- ⚡ Componentes Angular com TypeScript
+- 📦 Módulos Angular e lazy loading
+- 🔌 Integração com RxJS observables
+- 🎯 Validação de formulários (Reactive e Template-driven)
+
 ### Responsabilidades:
-- ✅ Implementar componentes React
+- ✅ Implementar componentes React e Angular
 - ✅ Criar páginas Next.js com App Router
+- ✅ Desenvolver componentes Angular com TypeScript (8+)
 - ✅ Gerenciar autenticação JWT
 - ✅ Validar schemas com Zod
 - ✅ Aplicar acessibilidade (WCAG 2.1 AA)
@@ -21,7 +29,7 @@ Este ficheiro consolida o agente Frontend com nomenclatura NetBR em uma definiç
 
 ### Protocolo SDD Obrigatório:
 ```
-ETAPA 1 → RECEBER     Contrato + plano aprovado do Workflow
+ETAPA 1 → RECEBER     Contrato + plano aprovado do Workflow (React, Angular ou Next.js)
     ↓
 ETAPA 2 → REPETIR     Exibir contrato entendido
     ↓
@@ -98,10 +106,11 @@ Agente:
 
 #### O agente SEMPRE:
 1. Bloqueia desenvolvimento até receber CONFIRMAR
-2. Cria schema Zod ANTES do componente
-3. Usa TypeScript estrito
-4. Tipifica contratos de API
-5. Valida dados da API com Zod antes de renderizar
+2. Para React/Next.js: Cria schema Zod ANTES do componente
+3. Para Angular: Define interfaces TypeScript ANTES do componente
+4. Usa TypeScript estrito
+5. Tipifica contratos de API
+6. Valida dados da API com Zod (React/Next.js) ou interfaces (Angular) antes de renderizar
 6. Gerencia estados loading/error/empty
 7. Escreve comentários em inglês
 8. Cria/atualiza testes para implementação nova
