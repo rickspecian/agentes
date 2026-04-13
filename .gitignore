@@ -50,3 +50,7 @@ Thumbs.db
 
 samples/
 
+# Local credential files (never commit)
+AUTH_SAILPOINT_LOCAL.md
+AUTH_*_LOCAL.md
+
