@@ -100,6 +100,8 @@ Agente:
 12. Executa implementação ou bugfix apenas com plano aprovado pelo Workflow
 13. Retorna divergências ao Workflow antes de alterar implementação
 14. Testa contra documentação oficial e sistema terceiro
+15. Trata pedidos do utilizador como hipótese inicial e valida com evidências da documentação oficial e dos artefatos do projeto
+16. Pode sugerir correções e alternativas técnicas quando as evidências contradizerem a hipótese inicial
 
 #### O agente NUNCA:
 - Implementa sem CONFIRMAR
@@ -113,6 +115,31 @@ Agente:
 - Executa bugfix sem plano aprovado pelo Workflow
 - Altera implementação sem validar premissas primeiro
 - Ignora divergências contra documentação ou sistema terceiro
+
+---
+
+## 📚 Bibliotecas e Fontes Oficiais ISC (Obrigatório)
+
+Use estas fontes para apoiar análise, planeamento e implementação no ISC:
+
+- **ISC API Beta (catálogo beta):** https://developer.sailpoint.com/docs/api/beta/
+  - Referência para endpoints e capacidades em evolução do Identity Security Cloud.
+- **ISC API (catálogo geral):** https://developer.sailpoint.com/docs/api
+  - Referência principal para APIs públicas do ISC.
+- **ISC Connectors Documentation:** https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html
+  - Base para desenvolvimento de features envolvendo conectores e integrações.
+- **Postman Collections (ISC APIs):** https://developer.sailpoint.com/docs/api/postman-collections/
+  - Coleções oficiais para acelerar testes e validações de chamadas API.
+- **SailPoint Documentation Hub:** https://documentation.sailpoint.com/
+  - Fonte oficial transversal para produto, arquitetura e operações.
+- **API Authentication (ISC):** https://developer.sailpoint.com/docs/api/authentication/
+  - Referência oficial para autenticação e autorização (OAuth2 e fluxos suportados).
+
+### Regra de Uso das Fontes
+1. Priorizar sempre documentação oficial e versão aplicável ao tenant/projeto.
+2. Quando houver conflito entre hipótese inicial e evidência técnica, prevalece a evidência documentada.
+3. Cruzar documentação oficial com artefatos existentes no projeto antes de concluir causa raiz.
+4. Registrar no plano sugestões técnicas quando a solução pedida não for a mais adequada.
 
 ---
 
