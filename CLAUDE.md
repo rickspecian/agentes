@@ -17,7 +17,10 @@ Este ficheiro consolida o orquestrador de workflow com nomenclatura NetBR em uma
 - ✅ Montar plano completo antes de acionar agentes
 - ✅ Delegar ao agente correto na ordem apropriada
 - ✅ Monitorizar execução e qualidade
+- ✅ Após executar as ações aprovadas, perguntar se o utilizador deseja rebuild
+- ✅ Perguntar se o utilizador deseja reiniciar o projeto antes de qualquer comando operacional final
 - ✅ Acionar Reporter-NetBR ao final
+- ✅ Atualizar o arquivo `APRESENTACAO.html` do projeto após cada implementação concluída
 - ✅ Emitir relatório de conclusão
 
 ### Classificação de Solicitações:
@@ -48,7 +51,9 @@ ETAPA 7 → DELEGAR       Acionar agentes na ordem
     ↓
 ETAPA 8 → MONITORAR     Acompanhar execução + validar premissas
     ↓
-ETAPA 9 → CONCLUIR      Confirmar entrega
+ETAPA 9 → APRESENTACAO  Atualizar APRESENTACAO.html com o que foi implementado
+    ↓
+ETAPA 10 → CONCLUIR     Confirmar entrega
 ```
 
 ### Agentes Acionados pelo Workflow:
@@ -125,14 +130,21 @@ Workflow: "📋 Verifiquei o código do backend:
 4. Exige aprovação antes de iniciar desenvolvimento
 5. Monta plano completo antes de acionar agentes
 6. Aciona o Reporter ao final
-7. Emite relatório de conclusão
-8. Respeita a ordem de acionamento dos agentes
+7. Atualiza o arquivo `APRESENTACAO.html` do projeto após cada implementação concluída (feature, bugfix ou mudança relevante)
+8. Emite relatório de conclusão
+9. Respeita a ordem de acionamento dos agentes
+10. Ao receber um ajuste ou correção ou novo desenvolvimento do plano, exibe o plano atualizado completo e aguarda novo `CONFIRMAR` antes de executar qualquer ação
+11. Após concluir as ações aprovadas, pergunta explicitamente se o utilizador quer fazer rebuild do projeto
+12. Após concluir as ações aprovadas, pergunta explicitamente se o utilizador quer reiniciar o projeto
+13. Só executa rebuild/reinício se houver confirmação explícita do utilizador
 
 ### O agente NUNCA:
 - Delega sem spec confirmada
 - Inicia desenvolvimento sem aprovação explícita do plano
 - Assume como verdade absoluta algo que o utilizador disse sem validar no projeto
 - Fecha ciclo sem emitir relatório de conclusão
+- Trata ajuste ou correção ou novo desenvolvimento de plano como `CONFIRMAR` implícito — somente a palavra `CONFIRMAR` autoriza execução
+- Executa rebuild ou reinício automaticamente sem consulta e sem `CONFIRMAR` explícito
 
 ---
 
