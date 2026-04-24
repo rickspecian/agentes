@@ -6,7 +6,7 @@
 
 ## 🎯 O QUE CONFIGURAR
 
-**Arquivo:** `C:\Projetos\Agentes\CLAUDE.md` (Workflow-NetBR)
+**Arquivo:** `C:\Projetos\java-configurations\CLAUDE.md` (Workflow-NetBR)
 
 Este arquivo contém o orquestrador e todas as regras SDD que devem ser aplicadas globalmente.
 
@@ -35,7 +35,7 @@ Este arquivo contém o orquestrador e todas as regras SDD que devem ser aplicada
 
 4. **Cole o conteúdo do CLAUDE.md:**
    ```
-   Abra: C:\Projetos\Agentes\CLAUDE.md
+   Abra: C:\Projetos\java-configurations\CLAUDE.md
    Selecione tudo: Ctrl+A
    Copie: Ctrl+C
    Cole no campo de instruções personalizadas: Ctrl+V
@@ -78,7 +78,7 @@ Este arquivo contém o orquestrador e todas as regras SDD que devem ser aplicada
 
 5. **Cole o conteúdo do CLAUDE.md:**
    ```
-   Abra: C:\Projetos\Agentes\CLAUDE.md
+   Abra: C:\Projetos\java-configurations\CLAUDE.md
    Selecione tudo: Ctrl+A
    Copie: Ctrl+C
    Cole no campo do novo perfil: Ctrl+V
@@ -139,7 +139,7 @@ Se copiar diretamente, use um conversor ou ferramenta:
 3. Cole o conteúdo do `CLAUDE.md` diretamente no campo
 
 **Opção B — Via arquivo (recomendado se muitos caracteres especiais):**
-1. Abra: `C:\Projetos\Agentes\CLAUDE.md`
+1. Abra: `C:\Projetos\java-configurations\CLAUDE.md`
 2. Copie TODO o conteúdo
 3. Abra VS Code
 4. Paleta de comandos: `Ctrl+Shift+P`
@@ -173,7 +173,7 @@ Se copiar diretamente, use um conversor ou ferramenta:
 
 4. **Cole o conteúdo do CLAUDE.md:**
    ```
-   Abra: C:\Projetos\Agentes\CLAUDE.md
+   Abra: C:\Projetos\java-configurations\CLAUDE.md
    Selecione tudo: Ctrl+A
    Copie: Ctrl+C
    Cole no campo: Ctrl+V

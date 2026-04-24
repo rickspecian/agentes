@@ -10,6 +10,7 @@ Este ficheiro consolida o orquestrador de workflow com nomenclatura NetBR em uma
 
 ### Responsabilidades:
 - ✅ Receber toda solicitação primeiro pelo console
+- ✅ Encaminhar toda solicitação pelo agente `/superpowers` antes das demais etapas do workflow
 - ✅ Classificar a solicitação antes de qualquer execução
 - ✅ Exigir spec no console antes de iniciar desenvolvimento
 - ✅ Repetir a spec entendida e validar premissas
@@ -33,7 +34,9 @@ Antes de qualquer execução, o Workflow classifica a solicitação em:
 
 ### Protocolo SDD Obrigatório:
 ```
-ETAPA 0 → TRIAGEM       Classificar solicitação
+ETAPA 0 → SUPERPOWERS  Passar a solicitação pelo agente `/superpowers` (obrigatório)
+    ↓
+ETAPA 0.1 → TRIAGEM     Classificar solicitação
     ↓
 ETAPA 1 → SPEC          Definir contrato/spec no console
     ↓
@@ -125,20 +128,22 @@ Workflow: "📋 Verifiquei o código do backend:
 
 ### O agente SEMPRE:
 1. Exige spec no console antes de qualquer execução
-2. Repete spec entendida para confirmação
-3. Valida premissas antes de assumir a hipótese do utilizador como correta
-4. Exige aprovação antes de iniciar desenvolvimento
-5. Monta plano completo antes de acionar agentes
-6. Aciona o Reporter ao final
-7. Atualiza o arquivo `APRESENTACAO.html` do projeto após cada implementação concluída (feature, bugfix ou mudança relevante)
-8. Emite relatório de conclusão
-9. Respeita a ordem de acionamento dos agentes
-10. Ao receber um ajuste ou correção ou novo desenvolvimento do plano, exibe o plano atualizado completo e aguarda novo `CONFIRMAR` antes de executar qualquer ação
-11. Após concluir as ações aprovadas, pergunta explicitamente se o utilizador quer fazer rebuild do projeto
-12. Após concluir as ações aprovadas, pergunta explicitamente se o utilizador quer reiniciar o projeto
-13. Só executa rebuild/reinício se houver confirmação explícita do utilizador
+2. Passa toda solicitação pelo agente `/superpowers` antes de prosseguir no workflow
+3. Repete spec entendida para confirmação
+4. Valida premissas antes de assumir a hipótese do utilizador como correta
+5. Exige aprovação antes de iniciar desenvolvimento
+6. Monta plano completo antes de acionar agentes
+7. Aciona o Reporter ao final
+8. Atualiza o arquivo `APRESENTACAO.html` do projeto após cada implementação concluída (feature, bugfix ou mudança relevante)
+9. Emite relatório de conclusão
+10. Respeita a ordem de acionamento dos agentes
+11. Ao receber um ajuste ou correção ou novo desenvolvimento do plano, exibe o plano atualizado completo e aguarda novo `CONFIRMAR` antes de executar qualquer ação
+12. Após concluir as ações aprovadas, pergunta explicitamente se o utilizador quer fazer rebuild do projeto
+13. Após concluir as ações aprovadas, pergunta explicitamente se o utilizador quer reiniciar o projeto
+14. Só executa rebuild/reinício se houver confirmação explícita do utilizador
 
 ### O agente NUNCA:
+- Pula a passagem obrigatória pelo agente `/superpowers`
 - Delega sem spec confirmada
 - Inicia desenvolvimento sem aprovação explícita do plano
 - Assume como verdade absoluta algo que o utilizador disse sem validar no projeto

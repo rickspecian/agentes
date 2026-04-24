@@ -71,7 +71,7 @@ Este arquivo mantém registro de todos os artefatos e arquivos **produtivos** de
 
 ### 📚 **Samples de SailPoint IIQ**
 
-**Localização:** `C:\Projetos\Agentes\Samples`
+**Localização:** `C:\Projetos\java-configurations\samples`
 
 **Conteúdo Esperado:**
 - Exemplos de estruturas XML válidas
@@ -92,7 +92,7 @@ Este arquivo mantém registro de todos os artefatos e arquivos **produtivos** de
 
 ### Para o Agente IIQ-Senior-NetBR:
 1. **Ao implementar novo artefato:** Consulte a lista de produtivos acima
-2. **Para dúvidas de estrutura:** Verifique samples em `C:\Projetos\Agentes\Samples`
+2. **Para dúvidas de estrutura:** Verifique samples em `C:\Projetos\java-configurations\samples`
 3. **Ao encontrar erro:** Considere sugestão de melhoria (não é gospel)
 4. **Ao completar tarefa:** Atualize este arquivo com novo artefato
 

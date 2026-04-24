@@ -101,10 +101,10 @@ TAREFA: Identificar onde o projeto foi criado
 ```
 
 #### 2️⃣ Criar Arquivo de Artefatos Produtivos
-**Arquivo Template:** `C:\Projetos\Agentes\TEMPLATE_ARTEFATOS_PRODUTIVOS.md`
+**Arquivo Template:** `C:\Projetos\java-configurations\TEMPLATE_ARTEFATOS_PRODUTIVOS.md`
 
 **Ação:**
-1. Copiar template de `C:\Projetos\Agentes\TEMPLATE_ARTEFATOS_PRODUTIVOS.md`
+1. Copiar template de `C:\Projetos\java-configurations\TEMPLATE_ARTEFATOS_PRODUTIVOS.md`
 2. Adaptar para o projeto específico:
    - Substituir `[NOME_PROJETO]` pelo nome real
    - Substituir `[CAMINHO_PROJETO_FINAL]` pelo caminho absoluto do projeto
@@ -125,7 +125,7 @@ ETAPA 0 → RECEBER      Solicitação de configuração do agente IIQ
     ↓
 ETAPA 1 → ANALISAR     Detectar caminho do projeto final
     ↓
-ETAPA 2 → TEMPLATE     Localizar C:\Projetos\Agentes\TEMPLATE_ARTEFATOS_PRODUTIVOS.md
+ETAPA 2 → TEMPLATE     Localizar C:\Projetos\java-configurations\TEMPLATE_ARTEFATOS_PRODUTIVOS.md
     ↓
 ETAPA 3 → ADAPTAR      Substituir variáveis com dados do projeto
     ↓
@@ -147,7 +147,7 @@ Antes de considerar o agente configurado:
   - Projeto contém pastas esperadas (applications/, rules/, etc.)
   
 - [ ] **Template Localizado**
-  - `C:\Projetos\Agentes\TEMPLATE_ARTEFATOS_PRODUTIVOS.md` encontrado
+  - `C:\Projetos\java-configurations\TEMPLATE_ARTEFATOS_PRODUTIVOS.md` encontrado
   - Conteúdo válido para cópia
   
 - [ ] **Variáveis Substituídas**
@@ -171,7 +171,7 @@ Antes de considerar o agente configurado:
   - Estrutura formatada corretamente
   
 - [ ] **Conexões Documentadas**
-  - Referência a `C:\Projetos\Agentes\Samples` incluída
+  - Referência a `C:\Projetos\java-configurations\samples` incluída
   - Aviso de validação crítica de samples adicionado
   - Links para outros arquivos de configuração inclusos
 
@@ -263,7 +263,7 @@ ETAPA 6 → REPORTAR    Acionar Reporter-NetBR
 
 ### 🎯 Repositório de Samples (Externo)
 
-**Localização:** `C:\Projetos\Agentes\Samples`
+**Localização:** `C:\Projetos\java-configurations\samples`
 
 **Propósito:** Exemplos e templates de estruturas válidas em SailPoint IIQ
 
@@ -342,7 +342,7 @@ ETAPA 6 → REPORTAR    Acionar Reporter-NetBR
    └─ Qual é o status?
 
 3. SE NÃO EXISTE:
-   ├─ Consultar C:\Projetos\Agentes\Samples
+   ├─ Consultar C:\Projetos\java-configurations\samples
    ├─ Validar estrutura contra sailpoint.dtd
    ├─ Questionar se encontrar algo estranho
    └─ Sugerir melhorias
@@ -498,7 +498,7 @@ if (status && isActive) {  ❌ Proibido
 - [ ] Plano aprovado pelo Workflow
 - [ ] Contrato implementado exatamente
 - [ ] ✅ Consultei `ARTEFATOS_PRODUTIVOS.md` (projeto final)
-- [ ] ✅ Consultei samples em `C:\Projetos\Agentes\Samples` (se necessário)
+- [ ] ✅ Consultei samples em `C:\Projetos\java-configurations\samples` (se necessário)
 - [ ] ✅ Validei samples contra `sailpoint.dtd` (nem tudo é 100% correto)
 - [ ] ✅ Artefato novo/ajustado marcado inicialmente como `em validacao`
 - [ ] ✅ Confirmacao explicita do usuario recebida para promover para `produtivo`
@@ -554,7 +554,7 @@ if (status && isActive) {  ❌ Proibido
 ### Regra de Uso das Fontes
 1. Priorizar documentacao oficial da versao alvo (8.3, 8.4, 8.5).
 2. Quando usar link latest, registrar no plano que houve validacao de compatibilidade de versao.
-3. Para fontes com autenticacao, usar credenciais locais somente via arquivo protegido em `C:\Projetos\Agentes`.
+3. Para fontes com autenticacao, usar credenciais locais somente via arquivo protegido em `C:\Projetos\java-configurations`.
 4. Nunca commitar credenciais no Git.
 
 ---
@@ -566,5 +566,5 @@ Consulte este ficheiro para:
 2. Verificar regras críticas de BeanShell e segurança
 3. Consultar o template de confirmação
 4. **Referenciar artefatos produtivos do projeto** (ARTEFATOS_PRODUTIVOS.md)
-5. **Consultar samples externos** (C:\Projetos\Agentes\Samples) com validação crítica
+5. **Consultar samples externos** (C:\Projetos\java-configurations\samples) com validação crítica
 6. Manter qualidade e compliance com DTD

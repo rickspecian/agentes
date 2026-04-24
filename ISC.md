@@ -86,25 +86,30 @@ Agente:
 ### Regras de Comportamento:
 
 #### O agente SEMPRE:
-1. Bloqueia desenvolvimento até receber CONFIRMAR
-2. Consulta documentação oficial (documentation.sailpoint.com)
-3. Usa API v2025 como padrão
-4. Autentica via OAuth2 Client Credentials
-5. Valida schema JSON contra documentação
-6. Trata erros de API com retry logic
-7. Escreve comentários em inglês
-8. Documenta transforms e rules
-9. Testa em sandbox/staging ANTES de produção
-10. Versiona configurações via SailPoint CLI
-11. Cria/atualiza testes para implementação nova
-12. Executa implementação ou bugfix apenas com plano aprovado pelo Workflow
-13. Retorna divergências ao Workflow antes de alterar implementação
-14. Testa contra documentação oficial e sistema terceiro
-15. Trata pedidos do utilizador como hipótese inicial e valida com evidências da documentação oficial e dos artefatos do projeto
-16. Pode sugerir correções e alternativas técnicas quando as evidências contradizerem a hipótese inicial
+1. Lê `CLAUDE.md` na raiz do projeto por completo antes de qualquer ação
+2. Bloqueia desenvolvimento até receber CONFIRMAR
+3. Consulta documentação oficial (documentation.sailpoint.com)
+4. Usa API v2025 como padrão
+5. Autentica via OAuth2 Client Credentials
+6. Valida schema JSON contra documentação
+7. Trata erros de API com retry logic
+8. Escreve comentários em inglês
+9. Documenta transforms e rules
+10. Testa em sandbox/staging ANTES de produção
+11. Versiona configurações via SailPoint CLI
+12. Cria/atualiza testes para implementação nova
+13. Executa implementação ou bugfix apenas com plano aprovado pelo Workflow
+14. Retorna divergências ao Workflow antes de alterar implementação
+15. Testa contra documentação oficial e sistema terceiro
+16. Trata pedidos do utilizador como hipótese inicial e valida com evidências da documentação oficial e dos artefatos do projeto
+17. Pode sugerir correções e alternativas técnicas quando as evidências contradizerem a hipótese inicial
+18. Aplica o ciclo SDD completo (spec → plano → CONFIRMAR) mesmo para correções de lint, bug simples ou ajustes pontuais — **não há exceção de tamanho**
 
 #### O agente NUNCA:
+- Lê CLAUDE.md parcialmente ou pula essa etapa
 - Implementa sem CONFIRMAR
+- Executa qualquer edição de código (feature, bugfix, lint, refactor, debug) sem exibir spec + plano e receber CONFIRMAR explícito
+- Trata correção de lint ou bug simples como exceção ao fluxo SDD
 - Tenta alterar endpoints de sistemas terceiros
 - Hardcoda `client_id`, `client_secret` ou tokens
 - Usa endpoints deprecated
@@ -126,6 +131,8 @@ Use estas fontes para apoiar análise, planeamento e implementação no ISC:
   - Referência para endpoints e capacidades em evolução do Identity Security Cloud.
 - **ISC API (catálogo geral):** https://developer.sailpoint.com/docs/api
   - Referência principal para APIs públicas do ISC.
+- **ISC Rules (Extensibility):** https://developer.sailpoint.com/docs/extensibility/rules
+  - Referência obrigatória para Cloud Executed Rules, Rule Code Restrictions, assinatura de Inputs e boas práticas de implementação de rules.
 - **ISC Connectors Documentation:** https://documentation.sailpoint.com/connectors/isc/landingpages/help/landingpages/isc_landing.html
   - Base para desenvolvimento de features envolvendo conectores e integrações.
 - **Postman Collections (ISC APIs):** https://developer.sailpoint.com/docs/api/postman-collections/
@@ -140,13 +147,4 @@ Use estas fontes para apoiar análise, planeamento e implementação no ISC:
 2. Quando houver conflito entre hipótese inicial e evidência técnica, prevalece a evidência documentada.
 3. Cruzar documentação oficial com artefatos existentes no projeto antes de concluir causa raiz.
 4. Registrar no plano sugestões técnicas quando a solução pedida não for a mais adequada.
-
----
-
-## 📚 Como Usar Este Consolidado
-
-Consulte este ficheiro para:
-1. Entender o protocolo SDD para ISC
-2. Consultar o fluxo de validação de premissas
-3. Revisar regras operacionais e de segurança
-4. Usar o comportamento esperado como referência rápida
+5. Para qualquer criação ou ajuste de Cloud Rule, consultar primeiro a documentação de Rules (Extensibility).
