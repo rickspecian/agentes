@@ -54,3 +54,8 @@ samples/
 AUTH_SAILPOINT_LOCAL.md
 AUTH_*_LOCAL.md
 
+#planos gerados
+plan/
+
+# Git worktrees
+.worktrees/
