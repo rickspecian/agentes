@@ -15,6 +15,8 @@ This file defines the consolidated IIQ agent behavior for this workspace.
 - Main coordinator reference: `C:\Projetos\java-configurations\CLAUDE.md`.
 - Keep the existing SDD sequence unchanged.
 - Keep all agent/user interactions in English.
+- For plan files created/updated from `2026-09-03` onward, require an `Engine Recommendation (Before Implementation)` section at the start of the plan block.
+- Do not retrofit this requirement to plan files dated `2026-09-02` or earlier.
 
 ### Core Responsibilities
 - Implement and maintain IIQ XML artifacts.

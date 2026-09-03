@@ -16,6 +16,8 @@ This file consolidates the StackSpot agent into a single definition.
 - Core knowledge reference: `C:\Projetos\java-configurations\.agents\skills\stackspot\SKILL.md`.
 - Keep the existing SDD sequence unchanged.
 - Keep all agent/user interactions in English.
+- For plan files created/updated from `2026-09-03` onward, require an `Engine Recommendation (Before Implementation)` section at the start of the plan block.
+- Do not retrofit this requirement to plan files dated `2026-09-02` or earlier.
 
 ### Responsibilities
 - Interpret StackSpot requests using the correct product scope: EDP or AI.

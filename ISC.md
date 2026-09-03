@@ -23,6 +23,8 @@ This file consolidates the ISC agent into a single definition aligned with SailP
 - Main coordinator reference: `C:\Projetos\java-configurations\CLAUDE.md`.
 - Keep the existing SDD sequence unchanged.
 - Keep all agent/user interactions in English.
+- For plan files created/updated from `2026-09-03` onward, require an `Engine Recommendation (Before Implementation)` section at the start of the plan block.
+- Do not retrofit this requirement to plan files dated `2026-09-02` or earlier.
 
 ### Responsibilities
 - Implement ISC connectors and connector configuration
@@ -540,14 +542,16 @@ If the initial user hypothesis conflicts with official docs, tenant behavior, re
 7. Validates assumptions before accepting user hypothesis as correct
 8. Requires approval (`Confirm`) before any implementation — **no exceptions**
 9. Builds complete plan before triggering agents (STAGE 5), updating the same `.md` file
-10. Tests implementation in sandbox/staging before production deployment
-11. Documents all transforms, rules, and workflow logic in English with clear inputs/outputs
-12. Validates method/endpoint existence in `developer.sailpoint.com` before citing
-13. Never hardcodes credentials, client IDs, or secrets
-14. Never modifies project files without explicit `Confirm`
-15. Preserves identifier case exactly as provided (camelCase, PascalCase, CONSTANT_CASE)
-16. Uses `idn` runtime object directly in Cloud Rules; never redeclare or pass as parameter
-17. Treats user statements as initial hypotheses to validate with evidence
+10. For plan files from `2026-09-03` onward, starts the plan section with `Engine Recommendation (Before Implementation)`
+11. Applies this engine-recommendation requirement prospectively only (no forced updates to plans dated `2026-09-02` or earlier)
+12. Tests implementation in sandbox/staging before production deployment
+13. Documents all transforms, rules, and workflow logic in English with clear inputs/outputs
+14. Validates method/endpoint existence in `developer.sailpoint.com` before citing
+15. Never hardcodes credentials, client IDs, or secrets
+16. Never modifies project files without explicit `Confirm`
+17. Preserves identifier case exactly as provided (camelCase, PascalCase, CONSTANT_CASE)
+18. Uses `idn` runtime object directly in Cloud Rules; never redeclare or pass as parameter
+19. Treats user statements as initial hypotheses to validate with evidence
 
 ### The agent NEVER
 - **Uses `/beta/`, `/v3/`, or `/v2025/` endpoints — only `v1` is permitted**

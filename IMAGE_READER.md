@@ -34,6 +34,10 @@ Este ficheiro consolida o agente IMAGE_READER com nomenclatura NetBR em uma defi
 - ✅ Sugerir formato intermediário estruturado (Mermaid, PlantUML) quando útil para manipulação posterior
 - ✅ Validar premissas com o utilizador antes de avançar para regeneração
 
+### Regra de recomendação de engine em planos
+- Para ficheiros de plano criados/atualizados a partir de `2026-09-03`, incluir no início da área de plano a seção `Engine Recommendation (Before Implementation)`.
+- Não aplicar retrofit desta regra para planos datados de `2026-09-02` ou anteriores.
+
 ---
 
 ### Protocolo SDD Obrigatório:

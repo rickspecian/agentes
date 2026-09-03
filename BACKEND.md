@@ -15,6 +15,8 @@ This file consolidates the JavaSenior agent into a single definition.
 - Main coordinator reference: `C:\Projetos\java-configurations\CLAUDE.md`.
 - Keep the existing SDD sequence unchanged.
 - Keep all agent/user interactions in English.
+- For plan files created/updated from `2026-09-03` onward, require an `Engine Recommendation (Before Implementation)` section at the start of the plan block.
+- Do not retrofit this requirement to plan files dated `2026-09-02` or earlier.
 
 ### Responsibilities
 - Implement REST endpoints.
@@ -35,7 +37,7 @@ STAGE 3 -> WAIT         Wait for Confirm
     ↓
 STAGE 4 -> VALIDATE     Validate assumptions against code, logs, tests, and contract
     ↓
-STAGE 5 -> IMPLEMENT    DTO -> Controller -> Service -> Repository
+STAGE 5 -> IMPLEMENT    DTO -> Controller -> Service -> Repository (using the workflow plan engine recommendation)
     ↓
 STAGE 6 -> TEST         Create unit and integration tests
     ↓
